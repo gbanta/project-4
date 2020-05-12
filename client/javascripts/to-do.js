@@ -1,27 +1,31 @@
 //jshint esversion: 6
 
-let controller = function() {
+let controller = function () {
+  if (localStorage.getItem("toDoList") !== null) {
+    $(".items").html(localStorage.getItem("toDoList"));
+  }
 
-  let addCommentFromInputBox = function() {
+  let addItemFromInputBox = function () {
     //Semmy uses "$" to name variables that will contain jQuery objects
-    let $new_comment;
+    let $new_item;
 
-    if ($(".comment-input input").val() !== "") {
-      $new_comment = $("<p>").text($(".comment-input input").val());
-      //$new_comment.hide();
-      $(".comments").append($new_comment);
-      //$new_comment.fadeIn();
-      $(".comment-input input").val("");
+    if ($(".item-input input").val() !== "") {
+      $new_item = $("<p>").text($(".item-input input").val());
+      //$new_item.hide();
+      $(".items").append($new_item);
+      //$new_item.fadeIn();
+      $(".item-input input").val("");
+      localStorage.setItem("toDoList", $(".items").html());
     }
   };
 
-  $(".comment-input button").on("click", function(event) {
-    addCommentFromInputBox();
+  $(".item-input button").on("click", function (event) {
+    addItemFromInputBox();
   });
 
-  $(".comment-input input").on("keypress", function(event) {
+  $(".item-input input").on("keypress", function (event) {
     if (event.keyCode === 13) {
-      addCommentFromInputBox();
+      addItemFromInputBox();
     }
   });
 };
