@@ -50,7 +50,7 @@ class Dog extends Animal {
     this.breed = breed;
     this.weight = weight;
     this.bark = function () {
-      return (this.bark = `${bark} ${bark}!`);
+      return `${bark} ${bark}!`;
     };
   }
 }
