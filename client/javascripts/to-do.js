@@ -19,8 +19,17 @@ let controller = function () {
     }
   };
 
-  $(".item-input button").on("click", function (event) {
+  let clearItems = function () {
+    localStorage.removeItem("toDoList");
+    window.location.reload();
+  };
+
+  $("#item-add").on("click", function (event) {
     addItemFromInputBox();
+  });
+
+  $("#item-delete").on("click", function (event) {
+    clearItems();
   });
 
   $(".item-input input").on("keypress", function (event) {
