@@ -60,6 +60,17 @@ main {
   margin-left: 5px;
 }
 
+#item-delete {
+  font-weight: bold;
+  padding: 3px;
+  border-radius: 5px;
+  color: ivory;
+  background: olivedrab;
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-left: 5px;
+}
+
 .items {
   float: right;
   width: 570px;
